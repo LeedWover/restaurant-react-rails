@@ -2,13 +2,9 @@
 const API_URL = 'http://localhost:3000';
 
 export const getData = async () => {
-  const res = await fetch(`${API_URL}/food_categories`, {
-    method: "GET",
-    headers: {
-      "access-control-allow-origin": "*"
-    }
-  });
-  console.log(res);
+  const response = await fetch(`${API_URL}/food_categories`);
+  const data = await response.json()
+  console.log(data)
 };
 
 export const addData = async () => {

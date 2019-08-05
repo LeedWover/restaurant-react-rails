@@ -6,7 +6,7 @@ import { getData } from "./api";
 
 function App() {
   useEffect(() => {
-    getData();
+    getData()
   });
   
   return (
