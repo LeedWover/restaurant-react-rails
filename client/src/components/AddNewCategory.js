@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { addData } from '../api';
+import { addCategory } from '../api';
 
 const AddNewCategory = () => {
   const [categoryToSend, setCategoryToSend] = useState('');
@@ -11,7 +11,8 @@ const AddNewCategory = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    addData(categoryToSend)
+    addCategory(categoryToSend);
+    setCategoryToSend('');
   }
 
   return (

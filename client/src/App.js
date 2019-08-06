@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from "react";
-import AddCategory from './components/AddNewCategory';
+import AddCategory from "./components/AddNewCategory";
 
-import { getData } from "./api";
+import { getCategories, deleteCategory } from "./api";
 
 const App = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getData()
-      .then(data => {
-        setCategories(data)
-      })
-  })
+    getCategories().then(data => {
+      setCategories(data);
+    });
+  }, [])
 
   return (
     <div>
       <AddCategory />
-      {categories.map(category => <div key={category.id}>{category.name}</div>)}
+      {categories.map(category => (
+        <div key={category.id}>
+          {category.name}{" "}
+          <button onClick={() => deleteCategory(category.id)}>x</button>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
 export default App;
