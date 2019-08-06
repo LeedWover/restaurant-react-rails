@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 import { addCategory } from '../api';
 
-const AddNewCategory = () => {
-  const [categoryToSend, setCategoryToSend] = useState('');
+const AddNewCategory = ({categoryToSend, setCategoryToSend}) => {
 
   const handleChange = event => {
     setCategoryToSend(event.target.value)

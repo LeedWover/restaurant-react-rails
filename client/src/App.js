@@ -5,16 +5,17 @@ import { getCategories, deleteCategory } from "./api";
 
 const App = () => {
   const [categories, setCategories] = useState([]);
-
+  const [categoryToSend, setCategoryToSend] = useState('');
+  
   useEffect(() => {
     getCategories().then(data => {
       setCategories(data);
     });
-  }, [])
+  }, [categoryToSend])
 
   return (
     <div>
-      <AddCategory />
+      <AddCategory categoryToSend={categoryToSend} setCategoryToSend={setCategoryToSend} />
       {categories.map(category => (
         <div key={category.id}>
           {category.name}{" "}
