@@ -7,15 +7,15 @@ export const getData = async () => {
   return data;
 };
 
-export const addData = async () => {
-  const res = await fetch(`${API_URL}/food_categories`, {
+export const addData = async newCategory => {
+  return await fetch(`${API_URL}/food_categories`, {
     method: "POST",
     headers: {
-      "access-control-allow-origin": "*"
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name: 'test'
+      name: newCategory
     })
   });
-  console.log(res);
 };

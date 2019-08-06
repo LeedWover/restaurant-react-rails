@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 
+import { addData } from '../api';
+
 const AddNewCategory = () => {
+  const [categoryToSend, setCategoryToSend] = useState('');
 
+  const handleChange = event => {
+    setCategoryToSend(event.target.value)
+  }
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    addData(categoryToSend)
+  }
 
   return (
     <form>
-      <input type="text"/>
-      <button type="submit">Add new category</button>
+      <input  type="text" value={categoryToSend} onChange={handleChange} />
+      <button type="submit" onClick={handleSubmit}>Add new category</button>
     </form>
   )
 }

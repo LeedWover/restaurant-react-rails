@@ -4,7 +4,6 @@ import AddCategory from './components/AddNewCategory';
 import { getData } from "./api";
 
 const App = () => {
-
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -13,6 +12,7 @@ const App = () => {
         setCategories(data)
       })
   })
+
   return (
     <div>
       <AddCategory />
